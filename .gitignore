@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+*.zip
+notebooks/.ipynb_checkpoints/
+data/raw/statcan_housing.zip
