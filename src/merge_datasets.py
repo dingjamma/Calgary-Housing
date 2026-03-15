@@ -36,6 +36,8 @@ def load_economic_monthly():
                 .merge(econ, on="date", how="outer")
 
     merged = merged.sort_values("date").reset_index(drop=True)
+    # Forward-fill gaps (e.g. months where yfinance returns no data)
+    merged = merged.ffill()
     return merged
 
 

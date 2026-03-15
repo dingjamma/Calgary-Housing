@@ -161,7 +161,9 @@ def scrape_historical(start_year=2019, end_year=2024, delay=3.0, resume=True):
                     break
                 except Exception as e:
                     print(f"  attempt {attempt+1} failed: {e}")
-                    time.sleep(delay * 2)
+                    wait = delay * 3 + random.uniform(5, 20)
+                    print(f"  waiting {wait:.0f}s before retry...")
+                    time.sleep(wait)
 
             if rows:
                 all_rows.extend(rows)
@@ -174,7 +176,9 @@ def scrape_historical(start_year=2019, end_year=2024, delay=3.0, resume=True):
             df = df.drop_duplicates(subset=["date", "property_type", "district"])
             df.to_csv(output_file, index=False)
 
-            time.sleep(delay)
+            # Randomized delay — avoids predictable request patterns
+            jitter = random.uniform(0, delay * 0.5)
+            time.sleep(delay + jitter)
 
     df = pd.DataFrame(all_rows)
     df = df.drop_duplicates(subset=["date", "property_type", "district"])
@@ -185,7 +189,9 @@ def scrape_historical(start_year=2019, end_year=2024, delay=3.0, resume=True):
 
 
 if __name__ == "__main__":
+    import random
     print("=== Running historical scrape 2019-2024 (overnight mode) ===")
     print("Saves progress after each month — safe to interrupt and resume\n")
-    df = scrape_historical(start_year=2019, end_year=2024, delay=3.0, resume=True)
+    # Use longer delay + jitter to avoid Wayback Machine rate limits
+    df = scrape_historical(start_year=2019, end_year=2024, delay=15.0, resume=True)
     print(df.tail(10))

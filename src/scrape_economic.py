@@ -42,12 +42,19 @@ def scrape_market_indicators(start="2005-01-01"):
     dfs = []
     for ticker, col in tickers.items():
         try:
-            df = yf.Ticker(ticker).history(start=start, interval="1mo")[["Close"]]
+            df = yf.Ticker(ticker).history(start=start, interval="1d")[["Close"]]
             df.index = df.index.tz_localize(None)
             df.index.name = "date"
             df = df.rename(columns={"Close": col})
-            dfs.append(df)
-            print(f"  {col}: {len(df)} months")
+            # Resample daily → month-start using last trading day of month
+            monthly = df.resample("MS").last()
+            # Include current partial month
+            today_month = pd.Timestamp.today().to_period("M").to_timestamp()
+            if today_month not in monthly.index:
+                monthly.loc[today_month] = df.iloc[-1].values
+            monthly = monthly.sort_index()
+            dfs.append(monthly)
+            print(f"  {col}: {len(monthly)} months, latest {df.index[-1].date()} = {df.iloc[-1,0]:.4f}")
         except Exception as e:
             print(f"  Failed {ticker}: {e}")
 
