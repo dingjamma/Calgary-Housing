@@ -10,6 +10,10 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import subprocess, sys, os
 
+# Detect if running on Streamlit Cloud (no local scraping available)
+IS_CLOUD = os.environ.get("STREAMLIT_SHARING_MODE") == "streamlit" or \
+           not os.path.exists("src/scrape_oil.py")
+
 st.set_page_config(
     page_title="Calgary Housing Pressure",
     page_icon="🏠",
@@ -89,7 +93,9 @@ with col_title:
 with col_refresh:
     st.write("")
     st.write("")
-    if st.button("⟳ Refresh Data", use_container_width=True):
+    if IS_CLOUD:
+        st.caption("Data current as of last deploy")
+    elif st.button("⟳ Refresh Data", use_container_width=True):
         refresh_and_retrain()
 
 
