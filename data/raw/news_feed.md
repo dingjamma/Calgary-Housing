@@ -1,0 +1,155 @@
+# Calgary Housing & Oil Market — News Brief
+**Generated:** March 15, 2026 | **Sources:** CBC Calgary, CREB, OilPrice.com, Reuters, Better Dwelling
+**Coverage:** Last 14 days
+
+---
+
+## CBC Calgary
+### Alberta’s latest roadkill numbers highest ever recorded by carcass monitoring program
+*2026-03-15* | [Link](https://www.cbc.ca/news/canada/calgary/alberta-wildlife-watch-roadkill-carcass-9.7127651?cmp=rss)
+> According to Alberta Wildlife Watch, a provincial government program, more than 7,400 animals were reported as roadkill in 2025 — about a 13 per cent increase from 2024 and the highest ever recorded by the program.
+
+### Alberta Crown corporation study finds Red Deer OD prevention site closure didn’t lead to more deaths
+*2026-03-15* | [Link](https://www.cbc.ca/news/canada/edmonton/red-deer-overdose-prevention-closure-study-core-alberta-government-9.7128107?cmp=rss)
+> New research by a Crown corporation created by Alberta’s UCP government found that last year’s closure of Red Deer’s only overdose prevention site did not lead to increases in overdose deaths, emergency department visits or ambulance calls among former site users. But not everyone is happy with the study.
+
+### Alberta town wins $50K toward arena rebuild, holds street hockey fundraiser
+*2026-03-14* | [Link](https://www.cbc.ca/news/canada/calgary/taber-arena-explosion-rebuild-fundraiser-9.7128259?cmp=rss)
+> A southern Alberta town that  lost the use of its aging hockey arena after an explosion has won thousands of dollars to use in its recovery efforts. Taber was revealed Saturday as one of the Kraft Hockeyville contest’s provincial winners  after a two-week judging process.
+
+### Excited Einarson opens 'louder' world championship with wins over Sweden, U.S.
+*2026-03-14* | [Link](https://www.cbc.ca/sports/women-curling-worlds-march-14-9.7128584?cmp=rss)
+> Canadian skip Kerri Einarson looked up Saturday and saw real people, instead of cardboard cut-outs, in the stands at Calgary's WinSport Event Centre. She heard the roar of the crowd instead of the sound of flushing toilets piercing the silence.
+
+### First-of-its-kind community 'chicken school' planned for northeast Calgary
+*2026-03-14* | [Link](https://www.cbc.ca/news/canada/calgary/chicken-school-community-coop-calgary-9.7129158?cmp=rss)
+> Plans for what could be a first-of-its-kind "chicken school" and urban hen coop — a concept similar to a community garden — are in the works for northeast Calgary. The idea was hatched by the Winston Heights-Mountview Community Association, which hopes to build a large coop housing a dozen chickens for, among other community benefits, educational purposes.
+
+### Alberta power policies trigger $408M devaluation to ATCO's wind and solar division, company says
+*2026-03-14* | [Link](https://www.cbc.ca/news/canada/calgary/atco-blames-alberta-power-policies-as-it-devalues-wind-and-solar-projects-by-408m-9.7128473?cmp=rss)
+> The Calgary-based giant warned of "legal recourse" if province doesn't alter reforms that harm renewable projects.
+
+### Province reports baby died of influenza in Alberta
+*2026-03-14* | [Link](https://www.cbc.ca/news/canada/calgary/infant-influenza-alberta-9.7129043?cmp=rss)
+> An Alberta infant has died of the flu, the first death of someone under under the age of 20 so far this flu season.
+
+### Alberta merges its largest river basins as major update to water rules comes into effect
+*2026-03-14* | [Link](https://www.cbc.ca/news/canada/calgary/alberta-river-basins-peace-slave-athabasca-basin-water-act-9.7128174?cmp=rss)
+> Alberta’s two largest river basins have become one, part of a suite of major updates to the province’s water rules that came into force this week. While the provincial government says the change will remove a barrier for operations that straddle the basin's boundary, conservation groups worry about the implications for the environment.
+
+### Carney, Norway PM push message of oil-market stability as war in Middle East rattles global supply
+*2026-03-14* | [Link](https://www.cbc.ca/news/politics/carney-norway-canada-oil-iran-war-9.7129012?cmp=rss)
+> Prime Minister Mark Carney and Norway’s Jonas Gahr Støre stressed energy stability during talks in Oslo as the Middle East war rattles global oil markets. Canada will release 23.6 million barrels following an International Energy Agency call for coordinated action. Both leaders also urged de-escalation and pledged closer Canada-Norway cooperation on Arctic security.
+
+### Canadians might be soon waiting longer to have their air travel complaints heard
+*2026-03-14* | [Link](https://www.cbc.ca/news/politics/funding-to-clear-backlog-air-passenger-complaints-9.7127811?cmp=rss)
+> The federal government is currently weighing whether to renew funding meant to address a massive backlog of airline passenger complaints — funding that if not extended could result in Canadians having to wait longer to have their cases heard.
+
+### Boil water advisory issued for 500 southwest Calgary homes and businesses
+*2026-03-13* | [Link](https://www.cbc.ca/news/canada/calgary/boil-water-advisory-southwest-calgary-9.7128495?cmp=rss)
+> A boil water advisory has been issued by Alberta Health Services for approximately 500 homes and businesses located in the southwest community of Spruce Cliff, and some areas of Wildwood and Rosscarrock, effective immediately.
+
+### In a provincial first, Alberta government to partially fund independent school construction
+*2026-03-13* | [Link](https://www.cbc.ca/news/canada/edmonton/alberta-government-independent-school-construction-9.7128474?cmp=rss)
+> The Alberta government — for the first time — will partially fund the construction and expansion of independent schools in an attempt to create more student spaces.
+
+### Second review of Calgary's troubled water system coming, courtesy of provincial government
+*2026-03-13* | [Link](https://www.cbc.ca/news/canada/calgary/alberta-david-goldie-review-calgary-water-system-9.7128004?cmp=rss)
+> The provincial government has announced former Alberta Energy Regulator chair David Goldie will conduct a secondary review of Calgary’s troubled water system and the handling of it, after promising in January to do its own assessment.
+
+---
+
+## OilPrice.com
+### Middle East Crisis Could Triple Pakistan’s Oil Import Bill
+*2026-03-15* | [Link](https://oilprice.com/Energy/Crude-Oil/Middle-East-Crisis-Could-Triple-Pakistans-Oil-Import-Bill.html)
+> Previously, we reported that Pakistan could find itself sucked into the Middle East war thanks to the Strategic Mutual Defence Agreement (SMDA) it signed with Saudi Arabia in September 2025. The core of the agreement states that any aggression against one country is considered an aggression against both, potentially requiring Pakistan to intervene against Iran’s missile strikes on Saudi Arabia. Ho...
+
+### Asia’s LNG Lifeline Takes a Hit
+*2026-03-15* | [Link](https://oilprice.com/Energy/Crude-Oil/Asias-LNG-Lifeline-Takes-a-Hit.html)
+> Asia is the biggest market for liquefied natural gas. Asia is also the destination of up to 90% of Qatari and Emirati LNG—or was, until this month. With the shutdown of Qatar’s Ras Laffan LNG complex and the Strait of Hormuz traffic disruption, Asia is facing a lot of energy supply pain. QatarEnergy announced a complete halt to LNG production after Iranian drone strikes hit facilities at Ras Laffa...
+
+### How the Iran War Could Reshape Global Energy Policy
+*2026-03-15* | [Link](https://oilprice.com/Energy/Energy-General/How-the-Iran-War-Could-Reshape-Global-Energy-Policy.html)
+> The U.S.-Israeli attack on Iran and the ongoing conflict in the Middle East have caused the biggest oil disruption in history. The closure of a major transit route between Asia and Europe, as well as restrictions on fossil fuel production in the region, have driven oil and gas prices up, a trend that is set to continue. So, as governments are facing rising consumer energy bills once again, will it...
+
+### Futures Market Misreads the Hormuz Oil Shock
+*2026-03-14* | [Link](https://oilprice.com/Energy/Crude-Oil/Futures-Market-Misreads-the-Hormuz-Oil-Shock.html)
+> The oil futures paper market is likely underestimating the massive supply disruption that a closed Strait of Hormuz is creating in physical crude and fuel supply globally. Crude futures prices briefly spiked early this week to $119 per barrel, before retreating to the $90s and trading at $100 a barrel early on Friday in Asian trade. However, the premium of physical Dubai crude has surged to $38 pe...
+
+### How History Keeps the U.S. and Iran on a Collision Course
+*2026-03-14* | [Link](https://oilprice.com/Geopolitics/International/How-History-Keeps-the-US-and-Iran-on-a-Collision-Course.html)
+> The United States and Iran are fighting not just because of their differences, but also because of their similarities. Both countries see themselves as exceptional civilizations shaped by religion and sustained by a sense of victimhood. Each believes it has been repeatedly wronged by the other and is therefore acting defensively. This mutual narrative has become one of the most powerful forces sha...
+
+### Jet Fuel Prices Soar as War in Iran Ripples Through Global Aviation
+*2026-03-14* | [Link](https://oilprice.com/Energy/Energy-General/Jet-Fuel-Prices-Soar-as-War-in-Iran-Ripples-Through-Global-Aviation.html)
+> As the war in Iran spills over into other parts of the Middle East, energy experts expect the price of several oil and gas products to soar over the coming months, driven by shortages. This will likely affect flight prices, with several airlines warning of anticipated price hikes. It could lead to a travel slump, as consumers wait for prices to fall again. Australia’s Qantas Airways, Scandinavia’s...
+
+### Trump Bombs Iran’s Kharg Island and Threatens to Hit Oil Exports
+*2026-03-13* | [Link](https://oilprice.com/Latest-Energy-News/World-News/Trump-Bombs-Irans-Kharg-Island-and-Threatens-to-Hit-Oil-Exports.html)
+> U.S. President Donald Trump said American forces had launched a major bombing raid on Iran’s strategic Kharg Island, targeting military facilities on the key Persian Gulf outpost while warning Tehran that its vital oil infrastructure could be destroyed if shipping in the Strait of Hormuz is disrupted. In a social media statement, Trump said that at his direction the United States Central Command c...
+
+### Big Tech's Push to Make Electricity Cheaper
+*2026-03-13* | [Link](https://oilprice.com/Energy/Energy-General/Big-Techs-Push-to-Make-Electricity-Cheaper.html)
+> A new coalition of tech firms, including Google and Tesla, is banding together to address the growing issue of energy affordability in the United States. The AI boom is pushing energy grids around the country to the max, and skyrocketing energy demand from the data centers that power large language models is causing energy prices to soar. Until now, consumers have had to pay the price for Big Tech...
+
+### The Myth of the Oil Glut Is Dead
+*2026-03-13* | [Link](https://oilprice.com/Energy/Crude-Oil/The-Myth-of-the-Oil-Glut-Is-Dead.html)
+> For almost a decade, the global oil debate has been dominated by a powerful narrative: the world is drowning in crude. Financial pundits, banks, and energy agencies were all hitting the drums to announce a structural “oil glut”. A majority in oil markets was following the theory that the combined impact of US shale expansion, Russian exports, and sanctioned Iranian barrels quietly appearing in mar...
+
+### Bank of America: Sell Oil Above $100
+*2026-03-13* | [Link](https://oilprice.com/Latest-Energy-News/World-News/Bank-of-America-Sell-Oil-Above-100.html)
+> Bank of America is warning investors not to chase oil prices higher if crude climbs above $100 per barrel, arguing that prices at those levels tend to trigger government and central bank responses aimed at cooling the economy. The bank said oil has already been one of the biggest market movers this year. Crude prices are up nearly 70% year-to-date, far outpacing broader commodities, which are up a...
+
+---
+
+## Better Dwelling
+### This Week’s Top Stories: Canada’s Supersized Mortgage Defaults, & Toronto’s Unwanted Condos
+*2026-03-15* | [Link](https://betterdwelling.com/this-weeks-top-stories-canadas-supersized-mortgage-defaults-torontos-unwanted-condos/)
+> Time for your cheat sheet on this week&#8217;s top stories. Canadian Real Estate Canada’s Mortgage Delinquency Surge Now Resembles US Housing Crash Canadian mortgage delinquencies are climbing in an unexpected segment. Mortgages over $850k hit a 0.52% delinquency rate in Q3 2025, more than double the 0.24% rate for mortgages under $200k. Over two years, [&#8230;]
+The post This Week’s Top Stories: ...
+
+### Canadian Unemployment Hits Recession Levels, Private Sector Stalls
+*2026-03-13* | [Link](https://betterdwelling.com/canadian-unemployment-hits-recession-levels-private-sector-stalls/)
+> February may be the shortest month, but it punched above its weight when it came to job losses. Statistics Canada (StatCan) data shows employment fell in February, concentrated entirely in full-time roles. The little growth over the past year has been public sector expansion, masking a stalling private sector. The result: unemployment is at recession [&#8230;]
+The post Canadian Unemployment Hits R...
+
+### Canadian Building Intentions Surge, Mostly Government Spending
+*2026-03-12* | [Link](https://betterdwelling.com/canadian-building-intentions-surge-mostly-government-spending/)
+> Canadian headline building intentions are still coming in strong, but details are less flattering. Statistics Canada (StatCan) data show building permit values climbed in January, but remain weaker than pre-2023 levels once inflation-adjusted. A non-residential surge was behind most of the improvement, but it was taxpayer-funded, cementing Canada’s dependence on borrowed growth.&#160; Canadian Bui...
+
+### Canada’s Rental Bubble Moves East: Halifax Nears Toronto Prices
+*2026-03-11* | [Link](https://betterdwelling.com/canadas-rental-bubble-moves-east-halifax-nears-toronto-prices/)
+> Canada’s most expensive markets are on a collision course with its formerly affordable markets. Statistics Canada (StatCan) data shows quarterly rents in Toronto and Vancouver cooled in Q4 2025. The gap between expensive and traditionally affordable markets didn’t, with cities like Halifax now renting where Toronto was just 4 years ago—despite the latter’s economy being [&#8230;]
+The post Canada’s...
+
+### Canada’s Mortgage Delinquency Surge Now Resembles US Housing Crash
+*2026-03-10* | [Link](https://betterdwelling.com/canadas-mortgage-delinquency-surge-now-resembles-us-housing-crash/)
+> Smaller mortgages historically carried larger delinquency risks in Canada. Not anymore. TransUnion data now shows the largest mortgages falling into arrears at more than double the rate of the smallest. The reversal resembles the unwinding of the US housing bubble, when those with supersized mortgages rapidly cracked.&#160; Canadian Mortgage Risk Is Usually Concentrated At The [&#8230;]
+The post C...
+
+### Toronto Condos In Recession, Filled With Supply No One Wants: BMO
+*2026-03-09* | [Link](https://betterdwelling.com/toronto-condos-in-recession-filled-with-supply-no-one-wants-bmo/)
+> Greater Toronto’s real estate rut shows no signs of ending soon. BMO Capital Markets recently shot down the pent-up demand and slowing supply narratives, warning investors the market is filled with supply no one really wants.&#160; Toronto Real Estate Weakness Is Being Led By Condos Source: BMO Capital Markets; TRREB. Toronto’s slide continued last month [&#8230;]
+The post Toronto Condos In Recess...
+
+### This Week’s Top Stories: Canada’s Housing Crisis Deepens, Toronto Home Sales Hit New Lows
+*2026-03-08* | [Link](https://betterdwelling.com/this-weeks-top-stories-canadas-housing-crisis-deepens-toronto-home-sales-hit-new-lows/)
+> Time for your cheat sheet on this week&#8217;s top stories. Canadian Real Estate Canada’s Public Spending Spree Means Higher Mortgages For Longer A new National Bank of Canada (NBC) report confirms what most already know—government spending is spiralling. Government “investment” has grown at 3.5% annually over the past three years, over double the 1.7% rate [&#8230;]
+The post This Week&#8217;s Top...
+
+### Canada’s Public Spending Spree Means Higher Mortgages For Longer
+*2026-03-06* | [Link](https://betterdwelling.com/canadas-public-spending-spree-means-higher-mortgages-for-longer/)
+> Canada is using public spending to mask private sector weakness, and the bill won’t stop at taxes. A new National Bank of Canada (NBC) report warns public investment is growing at over twice the rate of overall GDP. It’s also fueling more borrowing, lifting the benchmark rate that impacts borrowing costs for everything from government [&#8230;]
+The post Canada&#8217;s Public Spending Spree Means H...
+
+### Toronto Real Estate Sales Fall To New Lows, Prices Tick Higher
+*2026-03-05* | [Link](https://betterdwelling.com/toronto-real-estate-sales-fall-to-new-lows-prices-tick-higher/)
+> Toronto real estate’s downturn continued last month, showing few signs of improvement. Toronto Regional Real Estate Board (TRREB) data shows home prices made a minor increase in February. Despite the mild bump, sales slipped to one of the lowest levels on record, while robust inventory continued to stagnate in the market.&#160; Toronto Real Estate Prices [&#8230;]
+The post Toronto Real Estate Sale...
+
+### Bank of Canada Is “Chasing Its Own Tail,” Warns Bank of Canada
+*2026-03-04* | [Link](https://betterdwelling.com/bank-of-canada-is-chasing-its-own-tail-warns-bank-of-canada/)
+> Canada’s central bank is “chasing its tail,” warns a new Bank of Canada (BoC) staff paper. The researchers studied the impact of including mortgage interest in the Consumer Price Index (CPI), discovering the circular logic. The BoC sets interest rates based on CPI, but CPI includes mortgage interest costs driven by those very rates. As [&#8230;]
+The post Bank of Canada Is “Chasing Its Own Tail,” W...
+
+---
