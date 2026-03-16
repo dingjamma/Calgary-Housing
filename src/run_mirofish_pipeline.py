@@ -17,16 +17,33 @@ import sys
 import json
 
 BASE_URL = "http://localhost:5001"
-SEED_FILE = os.path.join(
-    os.path.dirname(__file__),
-    "../..",
-    "MiroFish/simulations/2026-03-15-calgary-housing/seed.md"
+
+# Resolve paths — works both locally and in GitHub Actions
+_repo_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+_date_str  = __import__("datetime").date.today().strftime("%Y-%m-%d")
+
+# In GH Actions the MiroFish repo is checked out at ./MiroFish relative to Calgary-Housing
+# Locally it's at ../MiroFish
+_mirofish_base = os.environ.get(
+    "MIROFISH_DIR",
+    os.path.join(_repo_dir, "MiroFish") if os.path.isdir(os.path.join(_repo_dir, "MiroFish"))
+    else os.path.join(_repo_dir, "..", "MiroFish")
 )
-OUTPUT_DIR = os.path.join(
-    os.path.dirname(__file__),
-    "../..",
-    "MiroFish/simulations/2026-03-15-calgary-housing"
-)
+
+_sim_subdir = f"{_date_str}-calgary-housing"
+OUTPUT_DIR  = os.path.join(_mirofish_base, "simulations", _sim_subdir)
+
+# Seed = latest generated report, or the pre-placed seed.md if it exists
+_reports_dir = os.path.join(_repo_dir, "reports")
+_existing_seed = os.path.join(OUTPUT_DIR, "seed.md")
+if os.path.exists(_existing_seed):
+    SEED_FILE = _existing_seed
+else:
+    _reports = sorted(
+        [f for f in os.listdir(_reports_dir) if f.endswith(".md")],
+        reverse=True
+    ) if os.path.isdir(_reports_dir) else []
+    SEED_FILE = os.path.join(_reports_dir, _reports[0]) if _reports else _existing_seed
 
 SIMULATION_REQUIREMENT = (
     "Predict Calgary housing market outcomes for December 2026. "
