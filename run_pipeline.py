@@ -173,6 +173,7 @@ def step_mirofish():
     log.info("=== Step 6-7: MiroFish simulation ===")
     start_mirofish()
     run("run_mirofish_pipeline.py")
+    run("translate_report.py")
 
 
 # ── Main ─────────────────────────────────────────────────────────────────────

@@ -165,6 +165,13 @@ jobs:
           PYTHONIOENCODING: utf-8
         run: python src/run_mirofish_pipeline.py
 
+      - name: Translate report to English
+        working-directory: .
+        env:
+          QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: python src/translate_report.py
+
       - name: Commit simulation results to MiroFish repo
         working-directory: MiroFish
         run: |
@@ -175,5 +182,6 @@ jobs:
           git commit -m "Simulation run $(date +%Y-%m-%d)
 
           Automated biweekly Calgary Housing geopolitical simulation.
+          Includes English translation (report_en.md).
           [skip ci]"
           git push origin main
