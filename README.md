@@ -1,5 +1,7 @@
 # Calgary Housing Price Predictor
 
+# Github Action Currently disabled - This repo will work once Github Support answers me
+
 Full automated pipeline: scrape → model → news → report → geopolitical simulation. No manual downloads.
 
 **Live Dashboard:** [calgary-housing.streamlit.app](https://calgary-housing-7phh7dhjyyd2r7mtjymuvm.streamlit.app)
