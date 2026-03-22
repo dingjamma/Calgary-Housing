@@ -1,6 +1,6 @@
 """
 Calgary Housing Intelligence Pipeline — full automated run.
-Runs every 2 weeks via Windows Task Scheduler.
+Runs on the 1st and 15th of each month via Claude Code cron.
 
 Steps:
   1. Scrape all data sources (oil, CREB, BoC, economic indicators)
