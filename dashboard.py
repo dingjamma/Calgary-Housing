@@ -8,11 +8,9 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import subprocess, sys, os
-
-# Detect if running on Streamlit Cloud (no local scraping available)
-IS_CLOUD = os.environ.get("STREAMLIT_SHARING_MODE") == "streamlit" or \
-           not os.path.exists("src/scrape_oil.py")
+import subprocess, sys, os, json, glob
+from pathlib import Path
+from datetime import datetime
 
 st.set_page_config(
     page_title="Calgary Housing Pressure",
@@ -85,6 +83,23 @@ last_mom    = last_creb["benchmark_mom_pct"]
 pred_next   = last_bench * (1 + score_today / 100)
 
 
+# ── Sidebar ────────────────────────────────────────────────────────────────────
+with st.sidebar:
+    st.title("Pipeline Info")
+    pressure_file = Path("data/processed/daily_housing_pressure.csv")
+    if pressure_file.exists():
+        last_update = datetime.fromtimestamp(pressure_file.stat().st_mtime)
+        days_stale = (datetime.now() - last_update).days
+        st.metric("Data Age", f"{days_stale} day{'s' if days_stale != 1 else ''}")
+        if days_stale > 16:
+            st.warning("Data may be stale — pipeline runs on 1st and 15th")
+        st.caption(f"Last updated: {last_update.strftime('%b %d, %Y')}")
+
+    reports = sorted(glob.glob("reports/*.md"), reverse=True)
+    if reports:
+        st.divider()
+        st.caption(f"Latest report: {os.path.basename(reports[0])}")
+
 # ── Header ─────────────────────────────────────────────────────────────────────
 col_title, col_refresh = st.columns([5, 1])
 with col_title:
@@ -93,9 +108,7 @@ with col_title:
 with col_refresh:
     st.write("")
     st.write("")
-    if IS_CLOUD:
-        st.caption("Data current as of last deploy")
-    elif st.button("⟳ Refresh Data", use_container_width=True):
+    if st.button("⟳ Refresh Data", use_container_width=True):
         refresh_and_retrain()
 
 
@@ -238,12 +251,85 @@ with c2:
     st.plotly_chart(fig3, use_container_width=True)
 
 
+# ── Model Performance ─────────────────────────────────────────────────────────
+st.divider()
+st.subheader("Model Performance")
+
+metrics_path = Path("data/processed/model_metrics.json")
+if metrics_path.exists():
+    metrics = json.loads(metrics_path.read_text())
+
+    m1, m2, m3 = st.columns(3)
+
+    if "annual" in metrics:
+        am = metrics["annual"]
+        with m1:
+            st.markdown("**Annual XGBoost**")
+            st.metric("MAE", f"{am['mae']:.2f} ppt")
+            st.metric("R2", f"{am['r2']:.3f}")
+            st.caption(f"LOO CV · {am['n_samples']} years")
+            st.caption(f"95% CI: [{am['ci_95_low_pct']:+.1f}%, {am['ci_95_high_pct']:+.1f}%]")
+
+    if "monthly" in metrics:
+        mm = metrics["monthly"]
+        with m2:
+            st.markdown("**Monthly XGBoost**")
+            if mm["mae"] is not None:
+                st.metric("MAE", f"{mm['mae']:.2f} ppt")
+                st.metric("R2", f"{mm['r2']:.3f}")
+            else:
+                st.caption("Not enough data for CV yet")
+            st.caption(f"TimeSeriesSplit · {mm['n_samples']} months")
+            st.caption(f"95% CI: [{mm['ci_95_low_pct']:+.2f}%, {mm['ci_95_high_pct']:+.2f}%]")
+
+    if "daily" in metrics:
+        dm = metrics["daily"]
+        with m3:
+            st.markdown("**Daily Pressure Score**")
+            if dm["mae"] is not None:
+                st.metric("MAE", f"{dm['mae']:.2f} ppt")
+                st.metric("R2", f"{dm['r2']:.3f}")
+            else:
+                st.caption("Not enough data for CV yet")
+            st.caption(f"TimeSeriesSplit · {dm['n_samples']} days")
+            st.caption(f"95% CI: [{dm['ci_95_low_pct']:+.2f}%, {dm['ci_95_high_pct']:+.2f}%]")
+
+    # Feature importance chart (from annual model — most interpretable)
+    if "annual" in metrics and "feature_importance" in metrics["annual"]:
+        st.subheader("Feature Importance (Annual Model)")
+        fi = metrics["annual"]["feature_importance"]
+        sorted_fi = dict(sorted(fi.items(), key=lambda x: x[1]))
+        feat_labels = {
+            "oil_price_avg": "Oil Avg", "oil_price_dec": "Oil Dec",
+            "overnight_rate_avg": "Rate Avg", "overnight_rate_dec": "Rate Dec",
+            "bond_yield_avg": "Bond Yield", "cadusd_avg": "CAD/USD",
+            "natgas_avg": "Nat Gas", "alberta_etf_avg": "AB ETF",
+            "avg_assessed_value": "Price Level", "price_yoy_pct": "Momentum",
+        }
+        fig_fi = go.Figure(go.Bar(
+            x=list(sorted_fi.values()),
+            y=[feat_labels.get(k, k) for k in sorted_fi.keys()],
+            orientation="h",
+            marker_color=["#e74c3c" if "oil" in k or "natgas" in k else "#60a5fa"
+                          for k in sorted_fi.keys()],
+        ))
+        fig_fi.update_layout(
+            height=300, paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(l=0, r=0, t=10, b=0), xaxis_title="Importance Score",
+        )
+        fig_fi.update_xaxes(showgrid=True, gridcolor="rgba(255,255,255,0.05)")
+        fig_fi.update_yaxes(showgrid=False)
+        st.plotly_chart(fig_fi, use_container_width=True)
+else:
+    st.info("Run the models first (`python run_pipeline.py`) to see validation metrics here.")
+
+
 # ── Interpretation ─────────────────────────────────────────────────────────────
 st.divider()
-st.subheader("How to read this")
-i1, i2, i3 = st.columns(3)
-i1.info("**Pressure Score > 0** — economic conditions favor rising benchmark prices next month. Oil moderate, rates stable.")
-i2.warning("**Pressure Score ≈ 0** — neutral. Market momentum is the dominant driver, not macro signals.")
-i3.error("**Pressure Score < 0** — economic shock regime. Oil spike or rate surge signals demand destruction, not prosperity. Current: oil at $100 flipped score negative Mar 10.")
+with st.expander("How to read this dashboard"):
+    i1, i2, i3 = st.columns(3)
+    i1.info("**Pressure Score > 0** — economic conditions favor rising benchmark prices next month. Oil moderate, rates stable.")
+    i2.warning("**Pressure Score ≈ 0** — neutral. Market momentum is the dominant driver, not macro signals.")
+    i3.error("**Pressure Score < 0** — economic shock regime. Oil spike or rate surge signals demand destruction, not prosperity.")
 
 st.caption("Data: CREB monthly stats PDFs · City of Calgary Open Data · Bank of Canada Valet API · WTI via yfinance · MiroFish geopolitical simulation")

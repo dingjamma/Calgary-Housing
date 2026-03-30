@@ -18,16 +18,12 @@ import json
 
 BASE_URL = "http://localhost:5001"
 
-# Resolve paths — works both locally and in GitHub Actions
 _repo_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 _date_str  = __import__("datetime").date.today().strftime("%Y-%m-%d")
 
-# In GH Actions the MiroFish repo is checked out at ./MiroFish relative to Calgary-Housing
-# Locally it's at ../MiroFish
 _mirofish_base = os.environ.get(
     "MIROFISH_DIR",
-    os.path.join(_repo_dir, "MiroFish") if os.path.isdir(os.path.join(_repo_dir, "MiroFish"))
-    else os.path.join(_repo_dir, "..", "MiroFish")
+    os.path.join(_repo_dir, "..", "MiroFish"),
 )
 
 _sim_subdir = f"{_date_str}-calgary-housing"

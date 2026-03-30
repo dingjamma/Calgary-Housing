@@ -17,12 +17,10 @@ BASE_URL = os.environ.get("LLM_BASE_URL",
            "https://dashscope-intl.aliyuncs.com/compatible-mode/v1")
 MODEL    = os.environ.get("LLM_MODEL_NAME", "qwen-plus")
 
-# Find the simulation directory — use env var (set by GH Actions) or search
 _repo_dir     = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 _mirofish_dir = os.environ.get(
     "MIROFISH_DIR",
-    os.path.join(_repo_dir, "MiroFish") if os.path.isdir(os.path.join(_repo_dir, "MiroFish"))
-    else os.path.join(_repo_dir, "..", "MiroFish")
+    os.path.join(_repo_dir, "..", "MiroFish"),
 )
 SIM_BASE = os.path.join(_mirofish_dir, "simulations")
 

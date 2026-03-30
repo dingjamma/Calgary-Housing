@@ -1,6 +1,23 @@
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# Environment
 .env
+
+# Logs
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# Archives
 *.zip
+
+# Jupyter
 notebooks/.ipynb_checkpoints/
+
+# Data artifacts
 data/raw/statcan_housing.zip

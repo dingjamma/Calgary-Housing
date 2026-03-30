@@ -4,15 +4,19 @@ Combines: model predictions + EDA findings + live news feed.
 Output: reports/calgary_housing_report_YYYY-MM-DD.md
 """
 
+import logging
 import pandas as pd
 import numpy as np
 from datetime import datetime
+from typing import Any
 import os, sys
+
+log = logging.getLogger(__name__)
 
 os.makedirs("reports", exist_ok=True)
 
 
-def load_model_outputs():
+def load_model_outputs() -> dict[str, Any]:
     """Load latest data and compute key stats."""
     annual   = pd.read_csv("data/processed/annual_merged.csv")
     monthly  = pd.read_csv("data/raw/creb_housing_prices.csv", parse_dates=["date"])

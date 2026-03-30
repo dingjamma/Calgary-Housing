@@ -4,12 +4,15 @@ Sources: CBC Calgary, CREB Newsroom, OilPrice.com, Reuters Energy RSS feeds.
 Outputs a clean markdown file of headlines + summaries for MiroFish seed input.
 """
 
+import logging
 import requests
 import pandas as pd
 from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 import re
 import os
+
+log = logging.getLogger(__name__)
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 LOOKBACK_DAYS = 14

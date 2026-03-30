@@ -14,6 +14,7 @@ Features (all lagged 1 year so we're predicting forward):
 Target: next year's YoY % price change
 """
 
+import logging
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -25,6 +26,8 @@ from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import LeaveOneOut
 import warnings
 warnings.filterwarnings("ignore")
+
+log = logging.getLogger(__name__)
 
 FEATURE_COLS = [
     "oil_price_avg",
@@ -42,7 +45,7 @@ FEATURE_COLS = [
 TARGET = "next_year_yoy_pct"
 
 
-def build_features(df):
+def build_features(df: pd.DataFrame) -> pd.DataFrame:
     """All features are already lagged correctly in annual_merged.csv:
     roll_year N uses reference_year N-1 economic indicators,
     and next_year_yoy_pct is the year N+1 target.
@@ -51,7 +54,7 @@ def build_features(df):
     return clean
 
 
-def train_and_evaluate():
+def train_and_evaluate() -> tuple:
     df = pd.read_csv("data/processed/annual_merged.csv")
     data = build_features(df)
 
@@ -144,6 +147,34 @@ def train_and_evaluate():
     print(f"\nOil spike scenario (2026 avg ~$88/barrel — current trajectory):")
     print(f"  Predicted YoY change: {pred_2026_spike:+.1f}%")
     print(f"  Predicted 2026 value: ${current_price * (1 + pred_2026_spike/100):,.0f}")
+
+    # --- Persist metrics ---
+    import json
+    from pathlib import Path
+    from datetime import datetime
+
+    residuals = y - preds
+    std_residual = float(np.std(residuals))
+    metrics = {
+        "annual": {
+            "mae": float(mae),
+            "r2": float(r2),
+            "n_samples": int(len(y)),
+            "cv_method": "LeaveOneOut",
+            "prediction_2026_base_pct": float(pred_2026_base),
+            "prediction_2026_spike_pct": float(pred_2026_spike),
+            "ci_95_low_pct": float(pred_2026_base - 1.96 * std_residual),
+            "ci_95_high_pct": float(pred_2026_base + 1.96 * std_residual),
+            "feature_importance": dict(zip(FEATURE_COLS, final_model.feature_importances_.tolist())),
+            "updated": datetime.now().isoformat(),
+        }
+    }
+    metrics_path = Path("data/processed/model_metrics.json")
+    existing = json.loads(metrics_path.read_text()) if metrics_path.exists() else {}
+    existing.update(metrics)
+    metrics_path.write_text(json.dumps(existing, indent=2))
+    print(f"\n  95% CI: [{pred_2026_base - 1.96 * std_residual:+.1f}%, {pred_2026_base + 1.96 * std_residual:+.1f}%]")
+    print(f"  Metrics saved to {metrics_path}")
 
     return final_model, data, preds, years, y, pred_2026_base, pred_2026_spike, current_price, oil_2025
 

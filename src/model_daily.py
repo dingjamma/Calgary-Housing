@@ -10,6 +10,7 @@ This gives a live signal that updates every trading day, not just when CREB publ
 The current $100 oil spike can be quantified in real time.
 """
 
+import logging
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -22,8 +23,10 @@ from sklearn.model_selection import TimeSeriesSplit
 import warnings
 warnings.filterwarnings("ignore")
 
+log = logging.getLogger(__name__)
 
-def build_daily_dataset():
+
+def build_daily_dataset() -> tuple[pd.DataFrame, pd.DataFrame]:
     """
     For each day, compute rolling window features.
     Label each day with the CREB benchmark change for the following month.
@@ -88,7 +91,7 @@ FEATURE_COLS = [
 TARGET = "target_next_month_mom"
 
 
-def train_daily_model():
+def train_daily_model() -> tuple:
     print("Building daily model...")
     daily, creb_monthly = build_daily_dataset()
 
@@ -147,6 +150,35 @@ def train_daily_model():
     today = scoreable.iloc[-1]
     print(f"\n>>> TODAY ({today['date'].strftime('%Y-%m-%d')}): score = {today['housing_pressure_score']:+.2f}%")
     print(f"    Oil = ${today['oil_price_usd']:.2f}/barrel")
+
+    # --- Persist metrics ---
+    import json
+    from pathlib import Path
+    from datetime import datetime
+
+    residuals = y - model.predict(X)
+    std_residual = float(np.std(residuals))
+    today_score = float(today['housing_pressure_score'])
+    metrics = {
+        "daily": {
+            "mae": float(mae) if mae is not None else None,
+            "r2": float(r2) if r2 is not None else None,
+            "n_samples": int(len(labeled)),
+            "cv_method": "TimeSeriesSplit",
+            "today_score_pct": today_score,
+            "today_oil_usd": float(today['oil_price_usd']),
+            "ci_95_low_pct": float(today_score - 1.96 * std_residual),
+            "ci_95_high_pct": float(today_score + 1.96 * std_residual),
+            "feature_importance": dict(zip(FEATURE_COLS, model.feature_importances_.tolist())),
+            "updated": datetime.now().isoformat(),
+        }
+    }
+    metrics_path = Path("data/processed/model_metrics.json")
+    existing = json.loads(metrics_path.read_text()) if metrics_path.exists() else {}
+    existing.update(metrics)
+    metrics_path.write_text(json.dumps(existing, indent=2))
+    print(f"  95% CI: [{today_score - 1.96 * std_residual:+.2f}%, {today_score + 1.96 * std_residual:+.2f}%]")
+    print(f"  Metrics saved to {metrics_path}")
 
     return model, scoreable, labeled
 

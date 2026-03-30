@@ -6,6 +6,7 @@ Features: lagged monthly economic indicators + price momentum.
 Target: month-over-month % change in Total Residential benchmark price.
 """
 
+import logging
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -17,8 +18,10 @@ from sklearn.model_selection import TimeSeriesSplit
 import warnings
 warnings.filterwarnings("ignore")
 
+log = logging.getLogger(__name__)
 
-def build_monthly_dataset():
+
+def build_monthly_dataset() -> pd.DataFrame:
     """Join CREB monthly with economic indicators and engineer lag features."""
     # Load CREB — citywide Total Residential benchmark
     creb = pd.read_csv("data/raw/creb_housing_prices.csv", parse_dates=["date"])
@@ -87,7 +90,7 @@ FEATURE_COLS = [
 TARGET = "benchmark_mom_pct"
 
 
-def train_monthly_model():
+def train_monthly_model() -> tuple:
     print("Building monthly model...")
     df = build_monthly_dataset()
 
@@ -151,6 +154,34 @@ def train_monthly_model():
     print(f"  Predicted MoM change:          {pred_next:+.2f}%")
     print(f"  Predicted next benchmark:      ${pred_price:,.0f}")
     print(f"  (Oil at $100 — highest since 2014 spike)")
+
+    # --- Persist metrics ---
+    import json
+    from pathlib import Path
+    from datetime import datetime
+
+    residuals = clean[TARGET].values - model.predict(clean[FEATURE_COLS].values)
+    std_residual = float(np.std(residuals))
+    metrics = {
+        "monthly": {
+            "mae": float(mae) if mae is not None else None,
+            "r2": float(r2) if r2 is not None else None,
+            "n_samples": int(len(clean)),
+            "cv_method": "TimeSeriesSplit",
+            "prediction_next_mom_pct": float(pred_next),
+            "prediction_next_price": float(pred_price),
+            "ci_95_low_pct": float(pred_next - 1.96 * std_residual),
+            "ci_95_high_pct": float(pred_next + 1.96 * std_residual),
+            "feature_importance": dict(zip(FEATURE_COLS, model.feature_importances_.tolist())),
+            "updated": datetime.now().isoformat(),
+        }
+    }
+    metrics_path = Path("data/processed/model_metrics.json")
+    existing = json.loads(metrics_path.read_text()) if metrics_path.exists() else {}
+    existing.update(metrics)
+    metrics_path.write_text(json.dumps(existing, indent=2))
+    print(f"\n  95% CI: [{pred_next - 1.96 * std_residual:+.2f}%, {pred_next + 1.96 * std_residual:+.2f}%]")
+    print(f"  Metrics saved to {metrics_path}")
 
     return model, clean, df
 
